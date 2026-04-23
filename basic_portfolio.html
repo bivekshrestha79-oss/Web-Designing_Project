@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio</title>
+    <link rel="shortcut icon" href="F1_icon.jpeg" type="image/x-icon">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        
+
+        body {
+            margin: 0;
+            font-family: Arial;
+            color: white;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url('https://images.unsplash.com/photo-1498050108023-c5249f4df085') no-repeat center/cover;
+        }
+
+        #humanCheck {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: black;
+            color: white;
+            top: 0;
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .check-box {
+            background: #222;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .check-box input {
+            padding: 8px;
+            width: 150px;
+        }
+
+        .menu-btn {
+            background: black;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        .menu {
+            display: none;
+            background: rgba(0,0,0,0.9);
+        }
+
+        .menu a {
+            display: block;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            background: #4CAF50;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .profile {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #4CAF50;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .marquee {
+            width: 100%;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .marquee-content {
+            display: flex;
+            width: max-content;
+            animation: scroll 12s linear infinite;
+        }
+
+        .marquee-content img {
+            width: 120px;
+            height: 80px;
+            margin: 0 10px;
+            border-radius: 8px;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .box {
+            display: none;
+            margin: 20px;
+            padding: 20px;
+            background: rgba(0,0,0,0.7);
+        }
+
+        .card {
+            background: white;
+            color: black;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        #cv h3 {
+            color: #4CAF50;
+        }
+
+        #aboutPopup {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            background: rgba(0,0,0,0.8);
+        }
+
+        .popup-content {
+            background: white;
+            color: black;
+            padding: 20px;
+            width: 260px;
+            margin: 100px auto;
+            text-align: center;
+            border-radius: 10px;
+            transform: scale(0.8);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .popup-show .popup-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div id="humanCheck">
+    <div class="check-box">
+        Verify You Are Human<br><h3>Load PORTFOLIO & CV</h3>
+        <p>Solve: <span id="question"></span></p>
+        <input type="text" id="answer" placeholder="Enter answer">
+        <br><br>
+        <button onclick="checkAnswer()">Submit</button>
+    </div>
+</div>
+
+<div class="menu-btn">☰ Know More</div>
+
+<div class="menu">
+    <a href="#skills">My Skills</a>
+    <a href="#hobby">My Hobbies</a>
+    <a href="#cv">My CV</a>
+    <a href="#contact">Contact Me</a>
+</div>
+
+<header>
+    <img src="WhatsApp Image 2026-04-22 at 19.55.13.jpeg" class="profile" align="left">
+    <img src="WhatsApp Image 2026-04-22 at 19.09.40.jpeg" class="profile">
+    <img src="WhatsApp Image 2026-04-22 at 19.55.22.jpeg" class="profile" align="right">
+    <h1>BIVEK SHRESTHA</h1>
+    <p>Programmer | Sportsperson | Learner</p>
+
+    <button onclick="showAbout()">About Me</button>
+    <button onclick="showKnowMore()">Know More</button>
+    <div class="marquee">
+        <div class="marquee-content">
+            <img src="python.jpeg">
+            <img src="JS.png">
+            <img src="html.png">
+            <img src="css.jpeg">
+            <img src="mysql.png">
+        </div>
+        
+    </div>
+</header>
+
+<div id="skills" class="box">
+    <h2>Skills</h2>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Basic Python</li>
+        <li>MySQL</li>
+    </ul>
+</div>
+
+<div id="hobby" class="box">
+    <h2>Hobbies</h2>
+    <div class="card">Gaming</div>
+    <div class="card">Music</div>
+    <div class="card">Basketball</div>
+    <div class="card">Football</div>
+    <div class="card">Watching Formula 1 racing</div>
+</div>
+
+<div id="cv" class="box">
+    <img src="PFP.png" alt="Profile"width="30%"height="30%" style="vertical-align: middle; border-radius: 20%;" align="RIGHT"> 
+    <h2 align="center"font-family="Arial, sans-serif"font-size="24px"><b>MY CV</b></h2> 
+    <p><b>Name:</b> Bivek Shrestha</p> 
+    <p><b>Course:</b> Bachelor of Computer Applications (Hons. Data Science)</p> 
+    <p><b>University:</b> Chandigarh University</p> 
+    <p><b>Semester:</b> 2</p> <hr> 
+    <h3>Skills</h3> 
+    <ol type="I"> 
+        <li>HTML <li>CSS</li> 
+        <li>JavaScript</li> 
+        <li>Basic Python</li> 
+        <li>MySQL</li> </ol> <hr> 
+        <h3>Hobbies</h3> <ul type="bullet"> 
+            <li>Gaming</li> 
+            <li>Music</li> 
+            <li>Basketball & Football</li> 
+            <li>Watching Formula 1</li> </ul> 
+            <hr> <br> </div>
+    
+</div>
+
+<div id="contact" class="box">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:bivekshrestha79@gmail.com">bivekshrestha79@gmail.com</a></p>
+    <p>Instagram: <a href="https://instagram.com/noteven_bvek">instagram.com/noteven_bvek</a></p>
+</div>
+
+<div id="aboutPopup">
+    <div class="popup-content">
+        <h3>About Me</h3>
+        <p>
+           I am Bivek Shrestha, a BCA Data Science student.<br> Currently pursuing my degree at CHANDIGARH UNIVERSITY.<br> I am from Kathmandu, Nepal. I am 19 years old. <br>I believe in continuous learning and improvement. <br>Once opportunity arises, I am eager to learn and grow. &hearts;
+        </p>
+        <button onclick="closeAbout()">Close</button>
+    </div>
+</div>
+<script>
+    var num1 = Math.floor(Math.random() * 10);
+    var num2 = Math.floor(Math.random() * 10);
+    var correctAnswer = num1 + num2;
+
+    $("#question").text(num1 + " + " + num2);
+
+    function checkAnswer() {
+        if ($("#answer").val() == correctAnswer) {
+            $("#humanCheck").hide();
+        } else {
+            alert("Wrong! Try again.");
+        }
+    }
+
+    $(".menu-btn").click(function() {
+        $(".menu").toggle();
+    });
+
+    function showKnowMore() {
+        $(".menu").toggle();
+    }
+
+    $(".menu a").click(function() {
+        $(".box").hide();
+        $($(this).attr("href")).show();
+    });
+
+    function showAbout() {
+        $("#aboutPopup").show().addClass("popup-show");
+        $("#loader").show();
+        $("#aboutText").hide();
+
+        setTimeout(function() {
+            $("#loader").hide();
+            $("#aboutText").fadeIn();
+        }, 1000);
+    }
+
+    function closeAbout() {
+        $("#aboutPopup").hide().removeClass("popup-show");
+    }
+
+    $("#aboutPopup").click(function(e) {
+        if (e.target === this) $(this).hide();
+    });
+</script>
+
+</body>
+</html>
